@@ -15,13 +15,19 @@ class FeedItem
     protected $title;
 
     /** @var string */
+    protected $kicker;
+
+    /** @var string */
     protected $summary;
 
     /** @var string */
     protected $description;
 
-    /** @var @var string */
+    /** @var string */
     protected $link;
+
+    /** @var string */
+    protected $cover;
 
     /** @var string */
     protected $author;
@@ -53,6 +59,18 @@ class FeedItem
     public function title(string $title)
     {
         $this->title = $title;
+        return $this;
+    }
+
+    public function kicker(string $kicker)
+    {
+        $this->kicker = $kicker;
+        return $this;
+    }
+
+    public function cover(string $cover)
+    {
+        $this->cover = $cover;
         return $this;
     }
 
