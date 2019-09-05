@@ -1,0 +1,27 @@
+{
+    "name": "yubarajshrestha/iarticles",
+    "type": "library",
+    "description": "Super instant article generator.",
+    "keywords": ["laravel", "iarticles", "laravel-module"],
+    "authors": [
+        {
+            "name": "Yubaraj Shrestha",
+            "email": "companion.krish@outlook.com"
+        }
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "YubarajShrestha\\IArticles\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "YubarajShrestha\\IArticles\\IArticleServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {}
+}
