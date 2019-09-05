@@ -4,7 +4,7 @@ namespace YubarajShrestha\IArticles\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use YubarajShrestha\IArticles\Feed;
+use YubarajShrestha\IArticles\Article;
 
 class IArticleController extends Controller
 {
@@ -20,12 +20,12 @@ class IArticleController extends Controller
         
         $feed = $iarticles[$slug];
         abort_unless($feed, 404);
-        return new Feed($feed['title'], $feed['description'], $feed['lang'], request()->url(), $feed['items'], $feed['view'] ?? 'iarticles::feed');
+        return new Article($feed['title'], $feed['description'], $feed['lang'], request()->url(), $feed['items'], $feed['view'] ?? 'iarticles::feed');
     }
 
     public function feed() {
         $feed = config('iarticles.feeds')['main'];
         abort_unless($feed, 404);
-        return new Feed($feed['title'], $feed['description'], $feed['lang'], request()->url(), $feed['items'], $feed['view'] ?? 'iarticles::feed');
+        return new Article($feed['title'], $feed['description'], $feed['lang'], request()->url(), $feed['items'], $feed['view'] ?? 'iarticles::feed');
     }
 }

@@ -36,10 +36,12 @@
                                     <time class="op-published" datetime="{{ $item->published->toAtomString() }}">{{ \Carbon\Carbon::parse($item->published)->format('F jS, h:i A') }}</time>
                                     <time class="op-modified" dateTime="{{ $item->updated->toAtomString() }}">{{ \Carbon\Carbon::parse($item->updated)->format('F jS, h:i A') }}</time>
                                     <address>{{ $item->author }}</address>
+                                    @if(isset($item->cover))
                                     <figure>
                                         <img src="{{ $item->cover }}" />
                                         <figcaption>{{ $item->title }}</figcaption>
                                     </figure>
+                                    @endif
                                     @if(isset($item->kicker))
                                     <h3 class="op-kicker">{{ $item->kicker }}</h3>
                                     @endif

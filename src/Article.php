@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 use YubarajShrestha\IArticles\Exceptions\IArticleException;
 use Illuminate\Contracts\Support\Responsable;
 
-class Feed implements Responsable
+class Article implements Responsable
 {
     /** @var string */
     protected $title;
@@ -67,20 +67,20 @@ class Feed implements Responsable
         });
     }
 
-    protected function castToFeedItem($instantArticle): FeedItem
+    protected function castToFeedItem($instantArticle): Articles
     {
         if (is_array($instantArticle)) {
-            $instantArticle = new FeedItem($instantArticle);
+            $instantArticle = new Articles($instantArticle);
         }
-        if ($instantArticle instanceof FeedItem) {
+        if ($instantArticle instanceof Articles) {
             $instantArticle->validate();
             return $instantArticle;
         }
         if (! $instantArticle instanceof InstantArticle) {
             throw IArticleException::notFeedable($instantArticle);
         }
-        $feedItem = $instantArticle->feedItem();
-        if (! $feedItem instanceof FeedItem) {
+        $feedItem = $instantArticle->iArticle();
+        if (! $feedItem instanceof Articles) {
             throw IArticleException::notAFeedItem($feedItem);
         }
         $feedItem->validate();

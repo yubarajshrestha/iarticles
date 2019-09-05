@@ -23,7 +23,8 @@
                 "YubarajShrestha\\IArticles\\IArticleServiceProvider"
             ],
             "aliases": {
-                "IArticle": "YubarajShrestha\\IArticles\\InstantArticle"
+                "IArticle": "YubarajShrestha\\IArticles\\InstantArticle",
+                "Articles": "YubarajShrestha\\IArticles\\Articles"
             }
         }
     },

@@ -6,7 +6,7 @@ use Exception;
 use Carbon\Carbon;
 use YubarajShrestha\IArticles\Exceptions\IArticleException;
 
-class FeedItem
+class Articles
 {
     /** @var string */
     protected $id;

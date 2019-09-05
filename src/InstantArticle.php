@@ -4,7 +4,7 @@ namespace YubarajShrestha\IArticles;
 interface InstantArticle
 {
     /**
-     * @return array|\YubarajShresth\IArticles\FeedItem
+     * @return array|\YubarajShresth\IArticles\Articles
      */
-    public function feedItem();
+    public function iArticle();
 }
