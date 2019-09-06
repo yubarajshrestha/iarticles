@@ -1,7 +1,8 @@
 <?php
 namespace YubarajShrestha\IArticles\Exceptions;
+
 use Exception;
-use YubarajShrestha\IArticles\FeedItem;
+use YubarajShrestha\IArticles\Articles;
 
 class IArticleException extends Exception
 {
@@ -14,7 +15,7 @@ class IArticleException extends Exception
     {
         return (new static('`toFeedItem` should return an instance of `YubarajShrestha\IArticles\InstantArticle`'))->withSubject($subject);
     }
-    public static function missingField(FeedItem $subject, $field)
+    public static function missingField(Articles $subject, $field)
     {
         return (new static("Field `{$field}` is required"))->withSubject($subject);
     }
