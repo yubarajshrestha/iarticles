@@ -47,7 +47,7 @@
                                     @endif
                                 </header>
                                 {{ $item->description }}
-                                <footer><aside>Dekha Padhi</aside><small>© Copyright {{ Date('Y') }}</small></footer>
+                                <footer><small>© Copyright {{ Date('Y') }}</small></footer>
                             </article>
                         </body>
                         </html>
