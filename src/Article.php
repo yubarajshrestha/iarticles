@@ -21,16 +21,21 @@ class Article implements Responsable
     protected $url;
 
     /** @var string */
+    protected $brand;
+
+    /** @var string */
     protected $view;
 
     /** @var \Illuminate\Support\Collection */
     protected $items;
 
-    public function __construct($title, $description, $language, $url, $resolver, $view)
+    public function __construct($feed, $url, $resolver, $view)
     {
-        $this->title = $title;
-        $this->description = $description;
-        $this->language = $language;
+        $this->title = $feed['title'];
+        $this->brand = $feed['brand'];
+        $this->description = $feed['description'];
+        $this->language = $feed['lang'];
+        $this->brand = $feed['brand'];
         $this->url = $url;
         $this->view = $view;
         $this->items = $this->resolveItems($resolver);
@@ -40,6 +45,7 @@ class Article implements Responsable
     {
         $meta = [
             'title' => $this->title,
+            'brand' => $this->brand,
             'link' => url($this->url),
             'description' => $this->description,
             'language' => $this->language,
@@ -96,5 +102,5 @@ class Article implements Responsable
             return $feedItem->updated;
         })->last()->updated->toAtomString();
     }
-    
+
 }

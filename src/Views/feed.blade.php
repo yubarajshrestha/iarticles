@@ -31,7 +31,7 @@
                                 <header>
                                     <h1>{{ $item->title }}</h1>
                                     @if(isset($item->subtitle))
-                                    <h2>Article Subtitle</h2>
+                                    <h2>{{ $item->subtitle }}</h2>
                                     @endif
                                     <time class="op-published" datetime="{{ $item->published->toAtomString() }}">{{ \Carbon\Carbon::parse($item->published)->format('F jS, h:i A') }}</time>
                                     <time class="op-modified" dateTime="{{ $item->updated->toAtomString() }}">{{ \Carbon\Carbon::parse($item->updated)->format('F jS, h:i A') }}</time>
@@ -47,7 +47,7 @@
                                     @endif
                                 </header>
                                 {{ $item->description }}
-                                <footer><aside>Dekha Padhi</aside><small>© Copyright {{ Date('Y') }}</small></footer>
+                                <footer><aside>{{ $meta['brand'] }}</aside><small>© Copyright {{ Date('Y') }}</small></footer>
                             </article>
                         </body>
                         </html>

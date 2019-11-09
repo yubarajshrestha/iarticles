@@ -15,6 +15,9 @@ class Articles
     protected $title;
 
     /** @var string */
+    protected $subtitle;
+
+    /** @var string */
     protected $kicker;
 
     /** @var string */
@@ -59,6 +62,12 @@ class Articles
     public function title(string $title)
     {
         $this->title = $title;
+        return $this;
+    }
+
+    public function subtitle(string $subtitle)
+    {
+        $this->subtitle = $subtitle;
         return $this;
     }
 
