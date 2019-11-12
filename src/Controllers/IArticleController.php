@@ -19,13 +19,13 @@ class IArticleController extends Controller
         if(!in_array($slug, $keys)) return view('iarticles::index');
         $feed = $iarticles[$slug];
         abort_unless($feed, 404);
-        return new Article($feed, request()->url(), $feed['items'], $feed['view'] ?? 'iarticles::feed');
+        return new Article($feed, request()->url(), $feed['items'], $feed['type'] ? 'iarticles::'.$feed['type'] : 'iarticles::instant-article');
     }
 
     public function feed() {
         $feed = config('iarticles.feeds')['main'];
         abort_unless($feed, 404);
-        return new Article($feed, request()->url(), $feed['items'], $feed['view'] ?? 'iarticles::feed');
+        return new Article($feed, request()->url(), $feed['items'], $feed['type'] ? 'iarticles::'.$feed['type'] : 'iarticles::instant-article');
     }
 
 }
