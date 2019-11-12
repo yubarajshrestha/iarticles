@@ -14,20 +14,22 @@
 
 Install package by executing the command.
 
-```
+```bash
 composer require yubarajshrestha/iarticles
 ```
 
 #### Step 2: Publish Vendor Files
 You need to have some files and don't worry it's quite easy. You just want to execute the command now.
 
-`php artisan vendor:publish --tag=iarticles`
+```bash
+php artisan vendor:publish --tag=iarticles
+```
 
 #### Step 3: Update Configurations
 You need to define options in your `iarticles` configuration file. You'll find default options from where you will get an idea on how to configure things.
 
 #### Step 4: Implement Instant Article Interface to your Model and configure as follows
-```
+```php
 use YubarajShrestha\IArticles\InstantArticle;
 use YubarajShrestha\IArticles\Articles;
 class YourModel implements InstantArticle {
