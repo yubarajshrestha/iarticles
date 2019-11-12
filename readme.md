@@ -14,14 +14,14 @@
 
 Install package by executing the command.
 
-```bash
+```shell
 composer require yubarajshrestha/iarticles
 ```
 
 #### Step 2: Publish Vendor Files
 You need to have some files and don't worry it's quite easy. You just want to execute the command now.
 
-```bash
+```shell
 php artisan vendor:publish --tag=iarticles
 ```
 
