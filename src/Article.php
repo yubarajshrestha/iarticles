@@ -5,6 +5,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
 use YubarajShrestha\IArticles\Exceptions\IArticleException;
 use Illuminate\Contracts\Support\Responsable;
+use Illuminate\Support\Arr;
 
 class Article implements Responsable
 {
@@ -64,7 +65,7 @@ class Article implements Responsable
 
     protected function resolveItems($resolver): Collection
     {
-        $resolver = array_wrap($resolver);
+        $resolver = Arr::wrap($resolver);
         $items = app()->call(
             array_shift($resolver), $resolver
         );
@@ -100,7 +101,7 @@ class Article implements Responsable
         }
         return $this->items->sortBy(function ($feedItem) {
             return $feedItem->updated;
-        })->last()->updated->toAtomString();
+        })->last()->updated->toRfc822String();
     }
 
 }

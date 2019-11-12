@@ -12,9 +12,9 @@
         @foreach($items as $item)
             <item>
                 <title>{{ $item->title }}</title>
-                <link>{{ url($item->link) }}</link>
-                <guid>{{ url($item->link) }}</guid>
-                <pubDate>{{ $item->published->toAtomString() }}</pubDate>
+                <link>{{ $item->link }}</link>
+                <guid>{{ $item->link }}</guid>
+                <pubDate>{{ $item->published->toRfc822String() }}</pubDate>
                 <author>{{ $item->author }}</author>
                 <description>{{ strip_tags($item->summary) }}</description>
                 <content:encoded>
@@ -23,7 +23,7 @@
                         <html lang="ne" prefix="op: http://media.facebook.com/op#">
                             <head>
                                 <meta charset="utf-8">
-                                <link rel="canonical" href="{{ url($item->link) }}">
+                                <link rel="canonical" href="{{ $item->link }}">
                                 <meta property="op:markup_version" content="v1.0">
                             </head>
                         <body>
@@ -33,8 +33,8 @@
                                     @if(isset($item->subtitle))
                                     <h2>{{ $item->subtitle }}</h2>
                                     @endif
-                                    <time class="op-published" datetime="{{ $item->published->toAtomString() }}">{{ \Carbon\Carbon::parse($item->published)->format('F jS, h:i A') }}</time>
-                                    <time class="op-modified" dateTime="{{ $item->updated->toAtomString() }}">{{ \Carbon\Carbon::parse($item->updated)->format('F jS, h:i A') }}</time>
+                                    <time class="op-published" datetime="{{ $item->published->toRfc822String() }}">{{ \Carbon\Carbon::parse($item->published)->format('F jS, h:i A') }}</time>
+                                    <time class="op-modified" dateTime="{{ $item->updated->toRfc822String() }}">{{ \Carbon\Carbon::parse($item->updated)->format('F jS, h:i A') }}</time>
                                     <address>{{ $item->author }}</address>
                                     @if(isset($item->cover))
                                     <figure>
