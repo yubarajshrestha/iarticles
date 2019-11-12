@@ -5,6 +5,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
 use YubarajShrestha\IArticles\Exceptions\IArticleException;
 use Illuminate\Contracts\Support\Responsable;
+use Illuminate\Support\Arr;
 
 class Article implements Responsable
 {
@@ -21,16 +22,21 @@ class Article implements Responsable
     protected $url;
 
     /** @var string */
+    protected $brand;
+
+    /** @var string */
     protected $view;
 
     /** @var \Illuminate\Support\Collection */
     protected $items;
 
-    public function __construct($title, $description, $language, $url, $resolver, $view)
+    public function __construct($feed, $url, $resolver, $view)
     {
-        $this->title = $title;
-        $this->description = $description;
-        $this->language = $language;
+        $this->title = $feed['title'];
+        $this->brand = $feed['brand'];
+        $this->description = $feed['description'];
+        $this->language = $feed['lang'];
+        $this->brand = $feed['brand'];
         $this->url = $url;
         $this->view = $view;
         $this->items = $this->resolveItems($resolver);
@@ -40,6 +46,7 @@ class Article implements Responsable
     {
         $meta = [
             'title' => $this->title,
+            'brand' => $this->brand,
             'link' => url($this->url),
             'description' => $this->description,
             'language' => $this->language,
@@ -58,7 +65,7 @@ class Article implements Responsable
 
     protected function resolveItems($resolver): Collection
     {
-        $resolver = array_wrap($resolver);
+        $resolver = Arr::wrap($resolver);
         $items = app()->call(
             array_shift($resolver), $resolver
         );
@@ -94,7 +101,7 @@ class Article implements Responsable
         }
         return $this->items->sortBy(function ($feedItem) {
             return $feedItem->updated;
-        })->last()->updated->toAtomString();
+        })->last()->updated->toRfc822String();
     }
-    
+
 }
