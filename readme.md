@@ -18,13 +18,10 @@ Add the package in your composer.json by executing the command.
 composer require yubarajshrestha/iarticles
 ```
 
-#### Step 4: Publish Vendor Files
+#### Step 2: Publish Vendor Files
 You need to have some files and don't worry it's quite easy. You just want to execute the command now.
 
-`php artisan vendor:publish`
+`php artisan vendor:publish --tag=iarticles`
 
-#### Step 5: We are there now
-Final step is to migrate some files.
-
-#### Step 6: Awesome
+#### Step 3: Awesome
 1. Your project is now ready to go :+1:.

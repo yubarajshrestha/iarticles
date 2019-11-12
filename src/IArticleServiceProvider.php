@@ -32,7 +32,7 @@ class IArticleServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/Views', 'iarticles');
         $this->publishes([
 			__DIR__ . '/Skeleton/config.php' => base_path('config/iarticles.php')
-		]);
+		], 'iarticles');
     }
 
 }
