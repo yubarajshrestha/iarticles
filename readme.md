@@ -1,9 +1,9 @@
 # Modularizing Laravel
 
 [![GitHub stars](https://img.shields.io/github/stars/yubarajshrestha/laravel-module.svg)](https://github.com/yubarajshrestha/iarticles/stargazers)
-[![Latest Stable Version](https://poser.pugx.org/yubarajshrestha/ym/v/stable)](https://packagist.org/packages/yubarajshrestha/articles)
-[![Total Downloads](https://poser.pugx.org/yubarajshrestha/articles/downloads)](https://packagist.org/packages/yubarajshrestha/articles)
-[![License](https://poser.pugx.org/yubarajshrestha/articles/license)](https://packagist.org/packages/yubarajshrestha/articles)
+[![Latest Stable Version](https://poser.pugx.org/yubarajshrestha/iarticles/v/stable)](https://packagist.org/packages/yubarajshrestha/iarticles)
+[![Total Downloads](https://poser.pugx.org/yubarajshrestha/iarticles/downloads)](https://packagist.org/packages/yubarajshrestha/iarticles)
+[![License](https://poser.pugx.org/yubarajshrestha/iarticles/license)](https://packagist.org/packages/yubarajshrestha/iarticles)
 
 **If you are sick trying to findout the controllers, routes and views from too many project files in laravel then yes, this package is for you.**
 
