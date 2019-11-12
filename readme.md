@@ -12,7 +12,7 @@
 ### How to?
 #### Step 1: Install package
 
-Add the package in your composer.json by executing the command.
+Install package by executing the command.
 
 ```
 composer require yubarajshrestha/iarticles
@@ -23,5 +23,47 @@ You need to have some files and don't worry it's quite easy. You just want to ex
 
 `php artisan vendor:publish --tag=iarticles`
 
-#### Step 3: Awesome
+#### Step 3: Update Configurations
+You need to define options in your `iarticles` configuration file. You'll find default options from where you will get an idea on how to configure things.
+
+#### Step 4: Implement Instant Article Interface to your Model and configure as follows
+```
+use YubarajShrestha\IArticles\InstantArticle;
+use YubarajShrestha\IArticles\Articles;
+class YourModel implements InstantArticle {
+
+
+	/** 
+	 * Instant Article
+	 * @return Collection of YourModel
+	 */
+    public static function getFeedItems()
+    {
+        return YourModel::latest()->get()->take(25);
+    }
+
+    /** 
+     * Filter Feed Data
+     * @return iArticle Object
+     */
+    public function iArticle()
+    {
+        return Articles::create([
+            'id' => $this->id, // required | integer
+            'title' => $this->name, // required | string
+            'subtitle' => '', // nullable | string
+            'kicker' => $this->kicker, // nullable | string
+            'summary' => '', // required | string
+            'description' => '', // required | string
+            'cover' => '', // nullable | string
+            'updated' => '', // required | date
+            'published' => Carbon::parse($this->created_at), // required | date
+            'link' => '', // full url to item...
+            'author' => '' // nullable | email | string
+        ]);
+    }
+}
+```
+
+#### Step 5: Awesome
 1. Your project is now ready to go :+1:.
