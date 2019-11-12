@@ -5,9 +5,9 @@
 [![Total Downloads](https://poser.pugx.org/yubarajshrestha/iarticles/downloads)](https://packagist.org/packages/yubarajshrestha/iarticles)
 [![License](https://poser.pugx.org/yubarajshrestha/iarticles/license)](https://packagist.org/packages/yubarajshrestha/iarticles)
 
-**If you are sick trying to findout the controllers, routes and views from too many project files in laravel then yes, this package is for you.**
+**If you are seeking package for generating instant article or feeds then yes, this package is for you.**
 
-> This helps you to organize your Laravel Project codes by modularizing all your controllers, views and models. This will be very helpful when your laravel project is very big.
+> This helps you generate facebooks instant articles and also regular feeds with enough customizations you might need.
 
 ### How to?
 #### Step 1: Install package
